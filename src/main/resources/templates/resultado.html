@@ -1,0 +1,31 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymelaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}"></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+</head>
+<body>
+    <h2 th:text="${title}"></h2>
+    <ul>
+        <li th:text="${usuario.nombre}"></li>
+        <li th:text="${usuario.apellido}"></li>
+        <li th:text="${usuario.cuenta}"></li>
+        <li th:text="${usuario.pais.id}"></li>
+        <li th:text="${usuario.pais.nombre}"></li>
+        <!--Formato de fecha  dates.format o calendars.format -->
+        <li th:text="${#dates.format(usuario.fechaNacimiento,'dd/MM/yyyy')}"></li>
+        <li th:text="${usuario.username}"></li>
+        <li th:text="${usuario.email}"></li>
+        <li th:text="${usuario.password}"></li>
+        <li th:text="'Habilitado: ' + ${usuario.habilitar}"></li>
+        <li th:text="'Genero: ' + ${usuario.genero}"></li>
+    </ul>
+    <div>Roles</div>
+    <ul>
+
+        <li th:each="role:${usuario.roles}" th:text="${role.nombre}"></li>
+    </ul>
+</body>
+</html>
